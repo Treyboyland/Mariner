@@ -10,17 +10,8 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     bool disablesOnPickup = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [SerializeField]
+    GameEvent pickupEvent = null;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,6 +20,10 @@ public class Pickup : MonoBehaviour
         if (player != null)
         {
             player.Data.CurrentInventory.AddItems(rewards);
+            if (pickupEvent != null)
+            {
+                pickupEvent.Invoke();
+            }
             if (disablesOnPickup)
             {
                 gameObject.SetActive(false);

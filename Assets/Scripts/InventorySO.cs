@@ -107,4 +107,17 @@ public class InventorySO : ScriptableObject
             currentInventory.Add(new InventorySlot() { Item = data.Key, Count = data.Value });
         }
     }
+
+    public uint GetNumItems(ItemDataSO toCheck)
+    {
+        foreach (var slot in currentInventory)
+        {
+            if (slot.Item == toCheck)
+            {
+                return slot.Count;
+            }
+        }
+        
+        return 0;
+    }
 }

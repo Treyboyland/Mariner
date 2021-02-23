@@ -41,6 +41,9 @@ TagManager:
   - name: Water Background
     uniqueID: 1079896965
     locked: 0
+  - name: Background Obstacles
+    uniqueID: 2719082011
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -49,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2430355883
+    locked: 0
+  - name: Home Base
+    uniqueID: 2731382823
     locked: 0
