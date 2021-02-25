@@ -7,7 +7,7 @@ public class PlayerDataSO : ScriptableObject
 {
     [Tooltip("Current items the player has")]
     [SerializeField]
-    InventorySO currentInventory;
+    InventorySO currentInventory = null;
 
     /// <summary>
     /// Current items the player has

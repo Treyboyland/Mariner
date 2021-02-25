@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    float speed;
+    float speed = 0;
 
     [SerializeField]
     bool isInWater = false;

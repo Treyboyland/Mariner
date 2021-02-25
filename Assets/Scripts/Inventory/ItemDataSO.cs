@@ -7,7 +7,7 @@ public class ItemDataSO : ScriptableObject
 {
     [Tooltip("Name of the item")]
     [SerializeField]
-    string itemName;
+    string itemName = null;
 
     /// <summary>
     /// Name of the item
@@ -17,7 +17,7 @@ public class ItemDataSO : ScriptableObject
 
     [Tooltip("True if player can only carry one of this item")]
     [SerializeField]
-    bool canPlayerOnlyHaveOne;
+    bool canPlayerOnlyHaveOne = false;
 
     /// <summary>
     /// True if player can only carry one of this item

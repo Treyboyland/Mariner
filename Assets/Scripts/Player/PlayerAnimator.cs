@@ -5,35 +5,35 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField]
-    float rightYAngle;
+    float rightYAngle = 0;
 
     [SerializeField]
-    float leftYAngle;
+    float leftYAngle = 0;
 
     [SerializeField]
-    float upZAngle;
+    float upZAngle = 0;
 
     [SerializeField]
-    float degreesPerSecondY;
+    float degreesPerSecondY = 0;
 
     [SerializeField]
-    float degreesPerSecondZ;
+    float degreesPerSecondZ = 0;
 
     [SerializeField]
-    PlayerDirection left;
+    PlayerDirection left = null;
 
     [SerializeField]
-    PlayerDirection right;
+    PlayerDirection right = null;
 
     [SerializeField]
-    PlayerDirection up;
+    PlayerDirection up = null;
 
     [SerializeField]
-    PlayerDirection down;
+    PlayerDirection down = null;
 
-    PlayerDirection previousDirection;
+    PlayerDirection previousDirection = null;
 
-    PlayerDirection currentDirectionHorizontal;
+    PlayerDirection currentDirectionHorizontal = null;
 
     public PlayerDirection CurrentDirectionHorizontal
     {

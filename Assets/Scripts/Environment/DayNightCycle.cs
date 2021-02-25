@@ -5,22 +5,22 @@ using UnityEngine;
 public class DayNightCycle : MonoBehaviour
 {
     [SerializeField]
-    Gradient skyColor;
+    Gradient skyColor = null;
 
     [SerializeField]
-    Camera mainCamera;
+    Camera mainCamera = null;
 
     [SerializeField]
-    GameEvent onDayStarted;
+    GameEvent onDayStarted = null;
 
     [SerializeField]
-    GameEvent onNightStarted;
+    GameEvent onNightStarted = null;
 
     [SerializeField]
-    float secondsPerCycle;
+    float secondsPerCycle = 0;
 
     [SerializeField]
-    Vector2 nightPercentage;
+    Vector2 nightPercentage = new Vector2();
 
     [SerializeField]
     float elapsed = 0;

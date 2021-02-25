@@ -5,7 +5,7 @@ using UnityEngine;
 public class LookTowardsMouse : MonoBehaviour
 {
     [SerializeField]
-    Camera mainCamera;
+    Camera mainCamera = null;
 
 
     const float SPRITE_CORRECTION_ANGLE = 90;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBubbles : MonoBehaviour
 {
     [SerializeField]
-    ParticleSystem particle;
+    ParticleSystem particle = null;
 
 
     public void Play()

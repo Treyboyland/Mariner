@@ -6,13 +6,13 @@ using TMPro;
 public class PlayerGoldUI : MonoBehaviour
 {
     [SerializeField]
-    Player player;
+    Player player = null;
 
     [SerializeField]
-    TextMeshProUGUI textBox;
+    TextMeshProUGUI textBox = null;
 
     [SerializeField]
-    ItemDataSO goldItem;
+    ItemDataSO goldItem = null;
 
     private void Start()
     {

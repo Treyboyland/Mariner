@@ -4,7 +4,7 @@ using UnityEngine;
 public class SkyParticles : MonoBehaviour
 {
     [SerializeField]
-    ParticleSystem particles;
+    ParticleSystem particles = null;
 
     public void StopParticlesClear()
     {

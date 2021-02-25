@@ -9,7 +9,7 @@ public class PlayerDepthUI : MonoBehaviour
     PlayerDepth player = null;
 
     [SerializeField]
-    TextMeshProUGUI textBox;
+    TextMeshProUGUI textBox = null;
 
     public void UpdateDepth()
     {
