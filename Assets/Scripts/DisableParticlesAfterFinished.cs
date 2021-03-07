@@ -5,7 +5,7 @@ using UnityEngine;
 public class DisableParticlesAfterFinished : MonoBehaviour
 {
     [SerializeField]
-    ParticleSystem ps;
+    ParticleSystem ps = null;
 
     private void OnEnable()
     {

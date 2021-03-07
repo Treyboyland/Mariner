@@ -52,4 +52,12 @@ public class GameObjectPool : MonoBehaviour
 
         return CreateObject();
     }
+
+    public void DisableAll()
+    {
+        foreach (var obj in objects)
+        {
+            obj.SetActive(false);
+        }
+    }
 }

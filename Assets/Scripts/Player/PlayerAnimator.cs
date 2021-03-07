@@ -31,8 +31,6 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]
     PlayerDirection down = null;
 
-    PlayerDirection previousDirection = null;
-
     PlayerDirection currentDirectionHorizontal = null;
 
     public PlayerDirection CurrentDirectionHorizontal

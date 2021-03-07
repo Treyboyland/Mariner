@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1c26a910f56494b96f7bbe4fbcc300, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: e29be48fa6529034e8d71d855539eb14, type: 3}
+  m_Name: OnPlayerExitedBase
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  currentInventory: {fileID: 11400000, guid: c3486e8f75729a442a096df607bce06a, type: 2}
-  maxDepth: 250

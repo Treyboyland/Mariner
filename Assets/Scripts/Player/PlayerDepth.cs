@@ -11,7 +11,7 @@ public class PlayerDepth : MonoBehaviour
     /// Player's current depth
     /// </summary>
     /// <value></value>
-    public float Depth { get { return -transform.position.y; } }
+    public float Depth { get { return -transform.position.y  * 10; } }
 
     // Update is called once per frame
     void Update()

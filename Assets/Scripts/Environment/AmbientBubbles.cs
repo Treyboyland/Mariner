@@ -5,7 +5,7 @@ using UnityEngine;
 public class AmbientBubbles : MonoBehaviour
 {
     [SerializeField]
-    ParticleSystem particles;
+    ParticleSystem particles = null;
 
     public void SetDeathCollider(Component collider)
     {
