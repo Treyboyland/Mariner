@@ -22,6 +22,7 @@ public class GameMap : MonoBehaviour
         INVALID = -1,
         BLANK,
         WALL,
+        WALL_COMPLETE
     }
 
     MapTiles[,] mapPoints;
@@ -31,8 +32,8 @@ public class GameMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitializeMap();
-        GenerateMap();
+        // InitializeMap();
+        // GenerateMap();
     }
 
     void InitializeMap()

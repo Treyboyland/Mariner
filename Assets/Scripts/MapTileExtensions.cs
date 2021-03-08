@@ -19,4 +19,18 @@ public static class MapTileExtensions
         }
         return sb.ToString();
     }
+
+    public static GameMap.MapTiles[,] CopyMap(this GameMap.MapTiles[,] tiles)
+    {
+        GameMap.MapTiles[,] toReturn = new GameMap.MapTiles[tiles.GetLength(0), tiles.GetLength(1)];
+        for (int x = 0; x < tiles.GetLength(0); x++)
+        {
+            for (int y = 0; y < tiles.GetLength(1); y++)
+            {
+                toReturn[x, y] = tiles[x, y];
+            }
+        }
+
+        return toReturn;
+    }
 }

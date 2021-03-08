@@ -52,4 +52,12 @@ public class MonoBehaviourPool<T> : MonoBehaviour where T : MonoBehaviour
 
         return CreateObject();
     }
+
+    public void DisableAll()
+    {
+        foreach (var obj in objects)
+        {
+            obj.gameObject.SetActive(false);
+        }
+    }
 }
