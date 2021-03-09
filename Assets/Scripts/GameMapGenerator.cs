@@ -58,7 +58,7 @@ public class GameMapGenerator : MonoBehaviour
             countY = 0;
             while (y + countY < map.GetLength(1))
             {
-                if (map[x + i, y + countY] != GameMap.MapTiles.WALL)
+                if (map[x + i, y + countY] != GameMap.MapTiles.WALL || countY > maxY)
                 {
                     break;
                 }
@@ -107,7 +107,7 @@ public class GameMapGenerator : MonoBehaviour
         wallPool.DisableAll();
 
         var map = gameMap.MapPoints.CopyMap();
-        Debug.LogWarning(map.AsString());
+        //Debug.LogWarning(map.AsString());
         float farLeft = -map.GetLength(0) * unitDistance / 2 + .5f;
         for (int x = 0; x < map.GetLength(0); x++)
         {
@@ -124,6 +124,6 @@ public class GameMapGenerator : MonoBehaviour
                 }
             }
         }
-        Debug.LogWarning(map.AsString());
+        //Debug.LogWarning(map.AsString());
     }
 }

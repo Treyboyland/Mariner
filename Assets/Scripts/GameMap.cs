@@ -11,6 +11,10 @@ public class GameMap : MonoBehaviour
     [SerializeField]
     int wallProbability = 50;
 
+    [Range(0, 100)]
+    [SerializeField]
+    int treasureProbability;
+
     [SerializeField]
     int numSmoothingOperations = 0;
 
