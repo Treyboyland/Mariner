@@ -14,7 +14,16 @@ public class GameMapGenerator : MonoBehaviour
     float unitDistance = 1;
 
     [SerializeField]
-    bool singleBlocks;
+    bool singleBlocks = false;
+
+    [SerializeField]
+    MapTreasureSpawner treasureSpawner = null;
+
+    [SerializeField]
+    Transform wallTransform = null;
+
+    [SerializeField]
+    Transform treasureTransform = null;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +114,7 @@ public class GameMapGenerator : MonoBehaviour
     public void MakeMap()
     {
         wallPool.DisableAll();
+        treasureSpawner.DisableAll();
 
         var map = gameMap.MapPoints.CopyMap();
         //Debug.LogWarning(map.AsString());
@@ -117,10 +127,14 @@ public class GameMapGenerator : MonoBehaviour
                 if (map[x, y] == GameMap.MapTiles.WALL)
                 {
                     var wall = wallPool.GetObject();
-                    wall.transform.SetParent(transform);
+                    wall.transform.SetParent(wallTransform);
                     wall.transform.localPosition = pos;
                     wall.SetScale(OptimizeWalls(map, x, y));
                     wall.gameObject.SetActive(true);
+                }
+                else if (map[x, y] == GameMap.MapTiles.BLANK && gameMap.ShouldSpawnTreasure)
+                {
+                    treasureSpawner.SpawnTreasure(treasureTransform, x, y, pos);
                 }
             }
         }

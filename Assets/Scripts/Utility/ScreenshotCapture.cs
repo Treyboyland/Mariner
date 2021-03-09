@@ -10,7 +10,7 @@ public class ScreenshotCapture : MonoBehaviour
 
     private void Start()
     {
-        screenshotLocation = Application.dataPath + "../Logs";
+        screenshotLocation = Application.dataPath + "/../Logs";
     }
 
     // Update is called once per frame

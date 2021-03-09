@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameWall : MonoBehaviour
 {
     [SerializeField]
-    GameObject objectToScale;
+    GameObject objectToScale = null;
 
     public void SetScale(Vector2 newScale)
     {

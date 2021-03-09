@@ -13,7 +13,15 @@ public class GameMap : MonoBehaviour
 
     [Range(0, 100)]
     [SerializeField]
-    int treasureProbability;
+    int treasureProbability = 0;
+
+    public bool ShouldSpawnTreasure
+    {
+        get
+        {
+            return Random.Range(0, 100) < treasureProbability;
+        }
+    }
 
     [SerializeField]
     int numSmoothingOperations = 0;
