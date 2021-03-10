@@ -10727,7 +10727,7 @@ MonoBehaviour:
   - Pickup: {fileID: 3509301629022982031, guid: ec4cfc7b557f8984e912680debcdcdad,
       type: 3}
     Pool: {fileID: 2043448562}
-  dropTable: {fileID: 11400000, guid: 49d0bc0ece441554599dc7bfb3f7a26e, type: 2}
+  dropTable: {fileID: 11400000, guid: dd98bc5db97644f42be7d1615cdfda2b, type: 2}
   defaultPool: {fileID: 1834259384}
 --- !u!1 &360427645
 GameObject:
@@ -17630,6 +17630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: e1fc884e65872dd41bf0823ea3a56995, type: 2}
+  isDebug: 1
+  debugData: {fileID: 11400000, guid: 8a8173ae69dc746409cc38af29fda6a9, type: 2}
   onFullHeal: {fileID: 11400000, guid: e7082f3272eb8d047a60ab020180996a, type: 2}
   onHealthUpdated: {fileID: 11400000, guid: abf2af0cae0258f48a4c86bf2b00928b, type: 2}
   onPlayerDamaged: {fileID: 11400000, guid: 56a3ddccebd4931499cd06048455dc2b, type: 2}

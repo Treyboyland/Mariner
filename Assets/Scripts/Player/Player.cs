@@ -8,6 +8,12 @@ public class Player : MonoBehaviour
     PlayerDataSO playerData = null;
 
     [SerializeField]
+    bool isDebug = false;
+
+    [SerializeField]
+    PlayerDataSO debugData = null;
+
+    [SerializeField]
     GameEvent onFullHeal = null;
 
     [SerializeField]
@@ -37,6 +43,10 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        if (isDebug)
+        {
+            playerData = debugData.Copy();
+        }
         FullHeal();
     }
 

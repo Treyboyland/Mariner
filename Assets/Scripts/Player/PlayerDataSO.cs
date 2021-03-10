@@ -33,4 +33,14 @@ public class PlayerDataSO : ScriptableObject
     /// </summary>
     /// <value></value>
     public float MaxDepth { get { return maxDepth; } }
+
+    public PlayerDataSO Copy()
+    {
+        PlayerDataSO toReturn = ScriptableObject.CreateInstance<PlayerDataSO>();
+        toReturn.maxHealth = this.maxHealth;
+        toReturn.maxDepth = this.maxDepth;
+        toReturn.currentInventory = this.currentInventory.Copy();
+
+        return toReturn;
+    }
 }

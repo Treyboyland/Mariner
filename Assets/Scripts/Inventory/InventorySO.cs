@@ -7,7 +7,7 @@ public class InventorySO : ScriptableObject
 {
     [Tooltip("Items currently in inventory")]
     [SerializeField]
-    List<InventorySlot> currentInventory = null;
+    List<InventorySlot> currentInventory = new List<InventorySlot>();
 
 
     private void OnEnable()
@@ -117,7 +117,20 @@ public class InventorySO : ScriptableObject
                 return slot.Count;
             }
         }
-        
+
         return 0;
+    }
+
+    public InventorySO Copy()
+    {
+        Consolidate();
+        InventorySO toReturn = ScriptableObject.CreateInstance<InventorySO>();
+        toReturn.currentInventory = new List<InventorySlot>();
+        foreach (var slot in currentInventory)
+        {
+            toReturn.AddItem(slot);
+        }
+
+        return toReturn;
     }
 }
