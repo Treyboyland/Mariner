@@ -57,4 +57,10 @@ public class PlayerMovement : MonoBehaviour
 
         body.AddForce(new Vector2(x, isInWater ? y : 0), ForceMode2D.Impulse);
     }
+
+    public void Stop()
+    {
+        body.velocity = new Vector2();
+        body.angularVelocity = 0;
+    }
 }

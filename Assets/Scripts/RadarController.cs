@@ -13,6 +13,8 @@ public class RadarController : MonoBehaviour
     [SerializeField]
     GameObject radarImage = null;
 
+    public bool CanUseRadar { get; set; } = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class RadarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Radar"))
+        if (CanUseRadar && Input.GetButtonDown("Radar"))
         {
             FireEvent();
         }
