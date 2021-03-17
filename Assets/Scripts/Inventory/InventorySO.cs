@@ -34,7 +34,7 @@ public class InventorySO : ScriptableObject
         {
             if (slot.Item == toCheck)
             {
-                return slot.Count > count;
+                return slot.Count >= count;
             }
         }
 
@@ -73,11 +73,35 @@ public class InventorySO : ScriptableObject
             return;
         }
 
-        for (int i = currentInventory.Count; i >= 0; i--)
+        for (int i = currentInventory.Count - 1; i >= 0; i--)
         {
             if (currentInventory[i].Item == toRemove)
             {
                 currentInventory.RemoveAt(i);
+            }
+        }
+    }
+
+    public void RemoveItem(InventorySlot slot)
+    {
+        if (currentInventory.Count == 0)
+        {
+            return;
+        }
+        for (int i = currentInventory.Count - 1; i >= 0; i--)
+        {
+            if (currentInventory[i].Item == slot.Item)
+            {
+                var invSlot = currentInventory[i];
+                invSlot.Count = (uint)Mathf.Max(0, invSlot.Count - slot.Count);
+                if (invSlot.Count == 0)
+                {
+                    currentInventory.RemoveAt(i);
+                }
+                else
+                {
+                    currentInventory[i] = invSlot;
+                }
             }
         }
     }

@@ -10,6 +10,10 @@ public class ShopUIController : MonoBehaviour
     [SerializeField]
     GameEvent onShopOpened = null;
 
+    [SerializeField]
+    List<GameObject> nonMainScreens = null;
+
+
     public bool CanInteract { get; set; } = false;
 
     // Start is called before the first frame update
@@ -18,12 +22,21 @@ public class ShopUIController : MonoBehaviour
         shopCanvas.SetActive(false);
     }
 
+    public void DisableNonMain()
+    {
+        foreach (var obj in nonMainScreens)
+        {
+            obj.SetActive(false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (CanInteract && !shopCanvas.activeInHierarchy && Input.GetButton("OpenUI"))
         {
             onShopOpened.Invoke();
+            DisableNonMain();
             shopCanvas.SetActive(true);
         }
     }

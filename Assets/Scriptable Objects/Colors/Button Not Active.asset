@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87535ac83b32a0f47a2d731e8dad945e, type: 3}
-  m_Name: PlayerInventory Debug
+  m_Script: {fileID: 11500000, guid: 03cec3d2b64e6e94d82bcff874c48e8b, type: 3}
+  m_Name: Button Not Active
   m_EditorClassIdentifier: 
-  currentInventory:
-  - Item: {fileID: 11400000, guid: 6dc4deefdb4a70840a4935fc3eac8666, type: 2}
-    Count: 10
+  colorName: Not Active Button
+  color: {r: 1, g: 0, b: 0, a: 1}

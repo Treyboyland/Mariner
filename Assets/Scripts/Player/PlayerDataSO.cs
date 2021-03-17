@@ -28,6 +28,66 @@ public class PlayerDataSO : ScriptableObject
     [SerializeField]
     float maxDepth = 0;
 
+    [Tooltip("Maximum amount of energy that the player has")]
+    [SerializeField]
+    float maxEnergy;
+
+    /// <summary>
+    /// Maximum amount of energy that the player has
+    /// </summary>
+    /// <value></value>
+    public float MaxEnergy
+    {
+        get
+        {
+            return maxEnergy;
+        }
+        set
+        {
+            maxEnergy = value;
+        }
+    }
+
+    [Tooltip("Color of the ship on the back")]
+    [SerializeField]
+    Color backColor;
+
+    /// <summary>
+    /// Color of the ship on the back
+    /// </summary>
+    /// <value></value>
+    public Color BackColor
+    {
+        get
+        {
+            return backColor;
+        }
+        set
+        {
+            backColor = value;
+        }
+    }
+
+    [Tooltip("Color of the ship on the front")]
+    [SerializeField]
+    Color frontColor;
+
+    /// <summary>
+    /// Color of the ship on the front
+    /// </summary>
+    /// <value></value>
+    public Color FrontColor
+    {
+        get
+        {
+            return frontColor;
+        }
+        set
+        {
+            frontColor = value;
+        }
+    }
+
     /// <summary>
     /// The depth at which the player will start taking damage
     /// </summary>
@@ -40,6 +100,8 @@ public class PlayerDataSO : ScriptableObject
         toReturn.maxHealth = this.maxHealth;
         toReturn.maxDepth = this.maxDepth;
         toReturn.currentInventory = this.currentInventory.Copy();
+        toReturn.backColor = this.backColor;
+        toReturn.frontColor = this.frontColor;
 
         return toReturn;
     }

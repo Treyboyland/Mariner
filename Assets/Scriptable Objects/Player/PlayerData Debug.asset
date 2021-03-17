@@ -15,3 +15,5 @@ MonoBehaviour:
   maxHealth: 30
   currentInventory: {fileID: 11400000, guid: 9c91f730e27390e4a8bf27fbc3ec6ec9, type: 2}
   maxDepth: 250
+  backColor: {r: 0, g: 0, b: 0, a: 1}
+  frontColor: {r: 1, g: 1, b: 1, a: 1}
