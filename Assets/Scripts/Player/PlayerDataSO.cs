@@ -92,7 +92,7 @@ public class PlayerDataSO : ScriptableObject
     /// The depth at which the player will start taking damage
     /// </summary>
     /// <value></value>
-    public float MaxDepth { get { return maxDepth; } }
+    public float MaxDepth { get { return maxDepth; } set { maxDepth = value; } }
 
     public PlayerDataSO Copy()
     {

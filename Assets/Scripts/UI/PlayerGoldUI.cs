@@ -14,7 +14,7 @@ public class PlayerGoldUI : MonoBehaviour
     [SerializeField]
     ItemDataSO goldItem = null;
 
-    private void Start()
+    private void OnEnable()
     {
         UpdateGold();
     }

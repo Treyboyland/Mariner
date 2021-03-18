@@ -9,10 +9,21 @@ public class InventorySO : ScriptableObject
     [SerializeField]
     List<InventorySlot> currentInventory = new List<InventorySlot>();
 
+    [SerializeField]
+    GameEvent onInventoryUpdated = null;
 
     private void OnEnable()
     {
         Consolidate();
+        CallUpdateEvent();
+    }
+
+    void CallUpdateEvent()
+    {
+        if (onInventoryUpdated != null)
+        {
+            onInventoryUpdated.Invoke();
+        }
     }
 
     public bool HasItem(ItemDataSO toCheck)
@@ -51,11 +62,13 @@ public class InventorySO : ScriptableObject
             {
                 slot.Count += newSlot.Count;
                 currentInventory[i] = slot;
+                CallUpdateEvent();
                 return;
             }
         }
 
         currentInventory.Add(newSlot);
+        CallUpdateEvent();
     }
 
     public void AddItems(InventorySO newItems)
@@ -80,6 +93,7 @@ public class InventorySO : ScriptableObject
                 currentInventory.RemoveAt(i);
             }
         }
+        CallUpdateEvent();
     }
 
     public void RemoveItem(InventorySlot slot)
@@ -104,6 +118,7 @@ public class InventorySO : ScriptableObject
                 }
             }
         }
+        CallUpdateEvent();
     }
 
     public void Consolidate()
@@ -149,6 +164,7 @@ public class InventorySO : ScriptableObject
     {
         Consolidate();
         InventorySO toReturn = ScriptableObject.CreateInstance<InventorySO>();
+        toReturn.onInventoryUpdated = this.onInventoryUpdated;
         toReturn.currentInventory = new List<InventorySlot>();
         foreach (var slot in currentInventory)
         {

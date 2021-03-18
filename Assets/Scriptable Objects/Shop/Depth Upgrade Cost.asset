@@ -9,8 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87535ac83b32a0f47a2d731e8dad945e, type: 3}
-  m_Name: PlayerInventory
+  m_Script: {fileID: 11500000, guid: 99e151fc2eca34949bf82d6f9d653c6d, type: 3}
+  m_Name: Depth Upgrade Cost
   m_EditorClassIdentifier: 
-  currentInventory: []
-  onInventoryUpdated: {fileID: 11400000, guid: 35ef1e73c60d49a4698b2ae41c7ff2f7, type: 2}
+  costs:
+  - Count: 0
+    Cost: 15
+  - Count: 1
+    Cost: 50
+  - Count: 2
+    Cost: 500
+  - Count: 3
+    Cost: 2000
+  - Count: 4
+    Cost: 5000
