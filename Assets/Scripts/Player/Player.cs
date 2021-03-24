@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     PlayerDataSO debugData = null;
 
+    [Header("Health Events")]
+
     [SerializeField]
     GameEvent onFullHeal = null;
 
@@ -24,6 +26,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     GameEvent onPlayerDeath = null;
+
+    [Header("Energy Events")]
+    [SerializeField]
+    GameEvent onEnergyUpdated = null;
+
 
     public PlayerDataSO Data
     {
@@ -41,6 +48,10 @@ public class Player : MonoBehaviour
     /// <value></value>
     public int CurrentHealth { get { return currentHealth; } }
 
+    float currentEnergy;
+
+    public float CurrentEnergy { get { return currentEnergy; } }
+
     private void Awake()
     {
         if (isDebug)
@@ -57,6 +68,13 @@ public class Player : MonoBehaviour
             currentHealth = playerData.MaxHealth;
             onFullHeal.Invoke();
         }
+
+        if (currentEnergy != playerData.MaxEnergy)
+        {
+            currentEnergy = playerData.MaxEnergy;
+            onEnergyUpdated.Invoke();
+        }
+
         onHealthUpdated.Invoke();
     }
 
@@ -81,5 +99,27 @@ public class Player : MonoBehaviour
     public void InstaKill()
     {
         TakeDamage(currentHealth);
+    }
+
+    public void TakeEnergy(float energytoTake)
+    {
+        var originalEnergy = currentEnergy;
+        currentEnergy = Mathf.Max(0, currentEnergy - energytoTake);
+
+        if (currentEnergy != originalEnergy)
+        {
+            onEnergyUpdated.Invoke();
+        }
+    }
+
+    public void AddEnergy(float energyToAdd)
+    {
+        var originalEnergy = currentEnergy;
+        currentEnergy = Mathf.Min(Data.MaxEnergy, currentEnergy + energyToAdd);
+
+        if (currentEnergy != originalEnergy)
+        {
+            onEnergyUpdated.Invoke();
+        }
     }
 }

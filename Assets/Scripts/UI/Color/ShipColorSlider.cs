@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class ShipColorSlider : MonoBehaviour
 {
     [SerializeField]
-    Slider slider;
+    Slider slider = null;
 
     [SerializeField]
-    GameEvent valueChangedEvent;
+    GameEvent valueChangedEvent = null;
 
     public bool SendEvent { get; set; } = false;
 

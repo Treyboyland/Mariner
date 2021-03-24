@@ -96,12 +96,14 @@ public class PlayerDataSO : ScriptableObject
 
     public PlayerDataSO Copy()
     {
+        //TODO: Modify this to use reflection...
         PlayerDataSO toReturn = ScriptableObject.CreateInstance<PlayerDataSO>();
         toReturn.maxHealth = this.maxHealth;
         toReturn.maxDepth = this.maxDepth;
         toReturn.currentInventory = this.currentInventory.Copy();
         toReturn.backColor = this.backColor;
         toReturn.frontColor = this.frontColor;
+        toReturn.maxEnergy = this.maxEnergy;
 
         return toReturn;
     }

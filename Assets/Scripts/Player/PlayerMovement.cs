@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool IsMoving { get; private set; } = false;
+
     [SerializeField]
     Rigidbody2D body = null;
 
@@ -54,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         }
         var x = Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed;
         var y = Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed;
+
+        IsMoving = Input.GetButton("Movement");
 
         body.AddForce(new Vector2(x, isInWater ? y : 0), ForceMode2D.Impulse);
     }

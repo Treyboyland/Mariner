@@ -7,7 +7,7 @@ public class ColorSO : ScriptableObject
 {
     [Tooltip("Display name for this color")]
     [SerializeField]
-    string colorName;
+    string colorName = "";
 
     /// <summary>
     /// Display name for this color
@@ -17,7 +17,7 @@ public class ColorSO : ScriptableObject
 
     [Tooltip("Color Value")]
     [SerializeField]
-    Color color;
+    Color color = Color.black;
 
     /// <summary>
     /// Color Value

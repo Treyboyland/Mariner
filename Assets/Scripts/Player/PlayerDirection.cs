@@ -7,5 +7,5 @@ using System;
 public class PlayerDirection : GameEvent
 {
     [SerializeField]
-    string DirectionName = null;
+    string directionName = null;
 }

@@ -7,7 +7,7 @@ using TMPro;
 public class DepthUpgradeBuyButton : MonoBehaviour
 {
     [SerializeField]
-    Player player;
+    Player player = null; 
 
     [SerializeField]
     UpgradeCostSO purchaseTable = null;

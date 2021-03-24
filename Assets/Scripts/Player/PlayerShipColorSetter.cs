@@ -6,7 +6,7 @@ public class PlayerShipColorSetter : MonoBehaviour
 {
 
     [SerializeField]
-    Player player;
+    Player player = null;
 
     [SerializeField]
     List<SpriteRenderer> frontSprites = null;
