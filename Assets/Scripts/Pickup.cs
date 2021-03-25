@@ -19,15 +19,20 @@ public class Pickup : MonoBehaviour
         var player = other.GetComponent<Player>();
         if (player != null)
         {
-            player.Data.CurrentInventory.AddItems(rewards);
-            if (pickupEvent != null)
-            {
-                pickupEvent.Invoke();
-            }
-            if (disablesOnPickup)
-            {
-                gameObject.SetActive(false);
-            }
+            AddPickupToPlayer(player);
+        }
+    }
+
+    public void AddPickupToPlayer(Player player)
+    {
+        player.Data.CurrentInventory.AddItems(rewards);
+        if (pickupEvent != null)
+        {
+            pickupEvent.Invoke();
+        }
+        if (disablesOnPickup)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
