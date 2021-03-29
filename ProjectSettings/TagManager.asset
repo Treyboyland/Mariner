@@ -56,3 +56,6 @@ TagManager:
   - name: Home Base
     uniqueID: 2731382823
     locked: 0
+  - name: Darkness
+    uniqueID: 2747776045
+    locked: 0

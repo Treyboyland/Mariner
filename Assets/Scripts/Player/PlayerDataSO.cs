@@ -1,10 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Reflection;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Player/Player Data")]
 public class PlayerDataSO : ScriptableObject
 {
+    [Tooltip("Time of last save")]
+    [SerializeField]
+    long saveTime = 0;
+
+    /// <summary>
+    /// Time of last save;
+    /// </summary>
+    /// <value></value>
+    public DateTime SaveTime
+    {
+        get
+        {
+            return new DateTime(saveTime);
+        }
+    }
+
     [Tooltip("The player's maximum health points")]
     [SerializeField]
     int maxHealth = 0;
@@ -104,6 +122,8 @@ public class PlayerDataSO : ScriptableObject
         toReturn.backColor = this.backColor;
         toReturn.frontColor = this.frontColor;
         toReturn.maxEnergy = this.maxEnergy;
+        toReturn.saveTime = this.saveTime;
+
 
         return toReturn;
     }

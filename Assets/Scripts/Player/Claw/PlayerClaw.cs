@@ -32,6 +32,19 @@ public class PlayerClaw : MonoBehaviour
         SetYScale(initialLength);
     }
 
+    private void OnDisable()
+    {
+        ResetClaw();
+    }
+
+    void ResetClaw()
+    {
+        movingTowardsTreasure = false;
+        currentTreasureTracked = null;
+        SetYScale(initialLength);
+        StopAllCoroutines();
+    }
+
     public void StopTracking()
     {
         if (currentTreasureTracked == onTreasureExited.GameObject)

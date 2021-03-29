@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentInventory:
   - Item: {fileID: 11400000, guid: 6dc4deefdb4a70840a4935fc3eac8666, type: 2}
-    Count: 10
+    Count: 500
   onInventoryUpdated: {fileID: 11400000, guid: 35ef1e73c60d49a4698b2ae41c7ff2f7, type: 2}
