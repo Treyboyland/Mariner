@@ -25,6 +25,9 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField]
     float elapsed = 0;
 
+    [SerializeField]
+    bool randomize = false;
+
     /// <summary>
     /// True if we have moved to night
     /// </summary>
@@ -39,7 +42,10 @@ public class DayNightCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (randomize)
+        {
+            elapsed = Random.Range(0.0f, secondsPerCycle);
+        }
     }
 
     // Update is called once per frame

@@ -127,4 +127,15 @@ public class PlayerDataSO : ScriptableObject
 
         return toReturn;
     }
+
+    public void SetData(PlayerDataSO other)
+    {
+        this.maxHealth = other.maxHealth;
+        this.maxDepth = other.maxDepth;
+        this.currentInventory = other.currentInventory.Copy();
+        this.backColor = other.backColor;
+        this.frontColor = other.frontColor;
+        this.maxEnergy = other.maxEnergy;
+        this.saveTime = other.saveTime;
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DarknessAtDepth : MonoBehaviour
 {
     [SerializeField]
-    SpriteRenderer sprite;
+    SpriteRenderer sprite = null;
 
     [Tooltip("The depth past which there will be maximum darkrness")]
     [SerializeField]

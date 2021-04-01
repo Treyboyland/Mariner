@@ -11,7 +11,7 @@ public class AmbientBubbleSpawner : MonoBehaviour
     Vector2Int numberOfBubblesToSpawn = new Vector2Int();
 
     [SerializeField]
-    Player center = null;
+    Transform center = null;
 
     [SerializeField]
     Vector4 offsets = new Vector4();
@@ -59,7 +59,7 @@ public class AmbientBubbleSpawner : MonoBehaviour
             var bubble = bubblePool.GetObject();
             var x = Random.Range(offsets.x, offsets.y);
             var y = Random.Range(offsets.z, offsets.w);
-            bubble.transform.position = center.transform.position + new Vector3(x, y);
+            bubble.transform.position = center.position + new Vector3(x, y);
             bubble.SetDeathCollider(waterCollider);
             bubble.gameObject.SetActive(true);
         }

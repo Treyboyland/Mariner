@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     PlayerDataSO debugData = null;
 
+    [SerializeField]
+    PlayerDataSO releaseData = null;
+
     [Header("Health Events")]
 
     [SerializeField]
@@ -57,6 +60,10 @@ public class Player : MonoBehaviour
         if (isDebug)
         {
             playerData = debugData.Copy();
+        }
+        else
+        {
+            playerData = releaseData.Copy();
         }
         FullHeal();
     }

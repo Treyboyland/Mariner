@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerClawTrigger : MonoBehaviour
 {
     [SerializeField]
-    GameEventGameObject onTreasureCloseToClaw;
+    GameEventGameObject onTreasureCloseToClaw = null;
 
     [SerializeField]
-    GameEventGameObject onTreasureLeftClaw;
+    GameEventGameObject onTreasureLeftClaw = null;
 
     const string TREASURE_MASK_NAME = "Treasure";
 
