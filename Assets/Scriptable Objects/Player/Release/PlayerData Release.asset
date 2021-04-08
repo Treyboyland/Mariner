@@ -18,4 +18,4 @@ MonoBehaviour:
   maxDepth: 250
   maxEnergy: 120
   backColor: {r: 0, g: 0, b: 0, a: 1}
-  frontColor: {r: 1, g: 1, b: 1, a: 0}
+  frontColor: {r: 1, g: 1, b: 1, a: 1}

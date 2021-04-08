@@ -6,4 +6,9 @@ using UnityEngine;
 public class SaveLocationSO : ScriptableObject
 {
     public string SaveLocation { get; set; }
+
+    private void OnDisable()
+    {
+        SaveLocation = "";
+    }
 }

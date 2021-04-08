@@ -21,6 +21,10 @@ public class PlayerDataSO : ScriptableObject
         {
             return new DateTime(saveTime);
         }
+        set
+        {
+            saveTime = value.Ticks;
+        }
     }
 
     [Tooltip("The player's maximum health points")]

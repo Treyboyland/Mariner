@@ -83,10 +83,27 @@ public class PlayerSaveUtility : MonoBehaviour
     public void CreateSave()
     {
         string saveName = Application.persistentDataPath + "/" +
-            "Mariner-"+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff") + ".sav";
+            "Mariner-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-fff") + ".sav";
 
         saveLocation.SaveLocation = saveName;
 
         toChange = baseData.Copy();
+        SaveGame(saveName, toChange);
+    }
+
+    public static bool SaveGame(string filePath, PlayerDataSO data)
+    {
+        try
+        {
+            data.SaveTime = DateTime.Now;
+            File.WriteAllText(filePath, JsonUtility.ToJson(data));
+            Debug.Log("File saved at \"" + filePath + "\"");
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Cannot save file to path \"" + filePath + "\"\r\n" + e);
+            return false;
+        }
     }
 }
