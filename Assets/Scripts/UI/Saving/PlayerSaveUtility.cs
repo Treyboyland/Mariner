@@ -16,6 +16,7 @@ public class PlayerSaveUtility : MonoBehaviour
     [SerializeField]
     SaveLocationSO saveLocation = null;
 
+    [Serializable]
     public struct DataAndPath
     {
         public PlayerDataSO DataSO;
@@ -40,6 +41,10 @@ public class PlayerSaveUtility : MonoBehaviour
             //This location should hopefully be platform independent
             foreach (var file in Directory.GetFiles(Application.persistentDataPath))
             {
+                if (!file.Contains(".sav"))
+                {
+                    continue;
+                }
                 var data = LoadData(file);
                 if (data != null)
                 {
@@ -60,13 +65,22 @@ public class PlayerSaveUtility : MonoBehaviour
         try
         {
             var data = File.ReadAllText(filePath);
-            var playerData = JsonUtility.FromJson<PlayerDataSO>(data);
+            var playerData = (PlayerDataSO)ScriptableObject.CreateInstance(typeof(PlayerDataSO));
+            JsonUtility.FromJsonOverwrite(data, playerData);
+            //TODO: Figure out how to save and recover inventory
+            if (playerData.CurrentInventory == null)
+            {
+                Debug.LogWarning("Inventory unable to be restored");
+                playerData.CreateNewInventory();
+                playerData.CurrentInventory.Copy(baseData.CurrentInventory);
+            }
+
 
             return playerData;
         }
         catch (Exception e)
         {
-            Debug.LogError(e);
+            Debug.LogError("Could not parse file \"" + filePath + "\"\r\n" + e);
             return null;
         }
     }
@@ -87,7 +101,7 @@ public class PlayerSaveUtility : MonoBehaviour
 
         saveLocation.SaveLocation = saveName;
 
-        toChange = baseData.Copy();
+        toChange.SetData(baseData);
         SaveGame(saveName, toChange);
     }
 

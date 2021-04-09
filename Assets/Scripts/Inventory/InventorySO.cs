@@ -67,7 +67,7 @@ public class InventorySO : ScriptableObject
             }
         }
 
-        currentInventory.Add(newSlot);
+        currentInventory.Add(new InventorySlot() { Item = newSlot.Item, Count = newSlot.Count });
         CallUpdateEvent();
     }
 
@@ -172,5 +172,19 @@ public class InventorySO : ScriptableObject
         }
 
         return toReturn;
+    }
+
+    public void Copy(InventorySO other)
+    {
+        other.Consolidate();
+        this.currentInventory.Clear();
+        Consolidate();
+
+        foreach (var slot in other.currentInventory)
+        {
+            AddItem(slot);
+        }
+        this.onInventoryUpdated = other.onInventoryUpdated;
+
     }
 }

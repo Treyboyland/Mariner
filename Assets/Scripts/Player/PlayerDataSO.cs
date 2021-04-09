@@ -142,4 +142,9 @@ public class PlayerDataSO : ScriptableObject
         this.maxEnergy = other.maxEnergy;
         this.saveTime = other.saveTime;
     }
+
+    public void CreateNewInventory()
+    {
+        currentInventory = ScriptableObject.CreateInstance<InventorySO>();
+    }
 }

@@ -41,6 +41,6 @@ public class SaveDataUI : MonoBehaviour
 
     public void SetDataDefaults()
     {
-
+        
     }
 }
