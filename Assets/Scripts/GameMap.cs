@@ -23,6 +23,18 @@ public class GameMap : MonoBehaviour
         }
     }
 
+    [Range(0, 100)]
+    [SerializeField]
+    int enemyProbability = 0;
+
+    public bool ShouldSpawnEnemy
+    {
+        get
+        {
+            return Random.Range(0, 100) < enemyProbability;
+        }
+    }
+
     [SerializeField]
     int numSmoothingOperations = 0;
 

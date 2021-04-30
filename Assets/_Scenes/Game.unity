@@ -1250,7 +1250,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1864611413
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: f2df012702275954eb5cc56c05f28f41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.3019608}
@@ -1304,8 +1304,8 @@ SpriteMask:
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: -1547191251
   m_BackSortingLayerID: -1547191251
-  m_FrontSortingLayer: 4
-  m_BackSortingLayer: 4
+  m_FrontSortingLayer: 5
+  m_BackSortingLayer: 5
   m_FrontSortingOrder: 1000
   m_BackSortingOrder: -100
   m_IsCustomRangeActive: 1
@@ -1441,6 +1441,7 @@ Transform:
   - {fileID: 2046571807}
   - {fileID: 2043448561}
   - {fileID: 799917854}
+  - {fileID: 1552928337}
   m_Father: {fileID: 351099976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1496,7 +1497,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1864611413
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ab4694ea08350414ca1954729ac29611, type: 3}
   m_Color: {r: 0, g: 0.46226418, b: 0.0881678, a: 1}
@@ -11545,6 +11546,7 @@ GameObject:
   - component: {fileID: 351099979}
   - component: {fileID: 351099980}
   - component: {fileID: 351099981}
+  - component: {fileID: 351099982}
   m_Layer: 0
   m_Name: Game Map
   m_TagString: Untagged
@@ -11567,6 +11569,7 @@ Transform:
   - {fileID: 303553718}
   - {fileID: 1836998994}
   - {fileID: 1908684991}
+  - {fileID: 1724105974}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11585,6 +11588,7 @@ MonoBehaviour:
   dimensions: {x: 100, y: 90}
   wallProbability: 30
   treasureProbability: 5
+  enemyProbability: 1
   numSmoothingOperations: 3
   onMapGenerated: {fileID: 11400000, guid: ba5c3633a41a00f448d7eedc34e187d1, type: 2}
 --- !u!114 &351099978
@@ -11631,8 +11635,10 @@ MonoBehaviour:
   unitDistance: 2
   singleBlocks: 0
   treasureSpawner: {fileID: 351099981}
+  enemySpawner: {fileID: 351099982}
   wallTransform: {fileID: 303553718}
   treasureTransform: {fileID: 1908684991}
+  enemyTransform: {fileID: 1724105974}
 --- !u!114 &351099980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11675,6 +11681,23 @@ MonoBehaviour:
     Pool: {fileID: 2043448562}
   dropTable: {fileID: 11400000, guid: dd98bc5db97644f42be7d1615cdfda2b, type: 2}
   defaultPool: {fileID: 1834259384}
+--- !u!114 &351099982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351099975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bf5f0e956ef1745ac54775508a7119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - Enemy: {fileID: 1091488796817044100, guid: 4cb095fbf1de7d1449dbbd7226ee69da, type: 3}
+    Pool: {fileID: 1552928338}
+  dropTable: {fileID: 11400000, guid: 442885547d4c8a6478d1a366e088df48, type: 2}
+  defaultPool: {fileID: 1552928338}
 --- !u!1 &360427645
 GameObject:
   m_ObjectHideFlags: 0
@@ -11979,6 +12002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1543051671}
+  clawBody: {fileID: 422720416}
   onTreasureClose: {fileID: 11400000, guid: 62e94487d726af44ab5aa0cdf151cdcc, type: 2}
   onTreasureExited: {fileID: 11400000, guid: 92226d3118a150b4b8f4962f78482596, type: 2}
   yGrowthSpeed: 10
@@ -13074,7 +13098,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1547191251
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a0d1f4fdd29a144f9c13f7dab448fe3, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -14243,7 +14267,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1864611413
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 98e9dc480dcb8cd4b9783c06213827ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21943,7 +21967,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1864611413
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6df25d4ce86d6104b986118b476a4e8c, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -22725,6 +22749,52 @@ MonoBehaviour:
   objectPrefab: {fileID: 8250301071987753170, guid: ccb9d15efaaa80641a16ffd300ba6210,
     type: 3}
   initialSize: 3
+--- !u!1 &1552928336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1552928337}
+  - component: {fileID: 1552928338}
+  m_Layer: 0
+  m_Name: Enemy Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1552928337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552928336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 151856151}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552928338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552928336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ee2b55516e3574f8429ab2564d065a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 1091488796817044100, guid: 4cb095fbf1de7d1449dbbd7226ee69da,
+    type: 3}
+  initialSize: 20
 --- !u!1 &1556746792
 GameObject:
   m_ObjectHideFlags: 0
@@ -23839,6 +23909,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705688333}
   m_CullTransparentMesh: 0
+--- !u!1 &1724105973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724105974}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724105974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724105973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 351099976}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728902865
 GameObject:
   m_ObjectHideFlags: 0
@@ -26136,7 +26236,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1864611413
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6df25d4ce86d6104b986118b476a4e8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

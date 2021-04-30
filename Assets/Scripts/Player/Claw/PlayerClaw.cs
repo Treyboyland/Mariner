@@ -8,6 +8,9 @@ public class PlayerClaw : MonoBehaviour
     Player player = null;
 
     [SerializeField]
+    SpriteRenderer clawBody;
+
+    [SerializeField]
     GameEventGameObject onTreasureClose = null;
 
     [SerializeField]
@@ -30,11 +33,19 @@ public class PlayerClaw : MonoBehaviour
     void Start()
     {
         SetYScale(initialLength);
+        SetAlpha(0);
     }
 
     private void OnDisable()
     {
         ResetClaw();
+    }
+
+    void SetAlpha(float alpha)
+    {
+        var color = clawBody.color;
+        color.a = alpha;
+        clawBody.color = color;
     }
 
     void ResetClaw()
@@ -43,6 +54,7 @@ public class PlayerClaw : MonoBehaviour
         currentTreasureTracked = null;
         SetYScale(initialLength);
         StopAllCoroutines();
+        SetAlpha(0);
     }
 
     public void StopTracking()
@@ -58,6 +70,7 @@ public class PlayerClaw : MonoBehaviour
         if (!movingTowardsTreasure)
         {
             currentTreasureTracked = onTreasureClose.GameObject;
+            SetAlpha(1);
             StartCoroutine(GrowTowardsObject());
         }
     }
@@ -98,6 +111,7 @@ public class PlayerClaw : MonoBehaviour
         }
 
         SetYScale(initialLength);
+        SetAlpha(0);
         movingTowardsTreasure = false;
     }
 

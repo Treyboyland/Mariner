@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.ObjectModel;
 
 [CreateAssetMenu(fileName = "InventoryData", menuName = "Inventory/Inventory Data")]
 public class InventorySO : ScriptableObject
@@ -8,6 +9,12 @@ public class InventorySO : ScriptableObject
     [Tooltip("Items currently in inventory")]
     [SerializeField]
     List<InventorySlot> currentInventory = new List<InventorySlot>();
+
+    /// <summary>
+    /// NOTE: This should only be used to read data, and not modify the collection
+    /// </summary>
+    /// <value></value>
+    public List<InventorySlot> CurrentInventory { get { return currentInventory; } }
 
     [SerializeField]
     GameEvent onInventoryUpdated = null;

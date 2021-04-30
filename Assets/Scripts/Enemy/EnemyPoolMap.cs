@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 [Serializable]
-public struct PickupPoolMap
+public struct EnemyPoolMap
 {
-    public Pickup Pickup;
-    public PickupPool Pool;
+    public Enemy Enemy;
+    public EnemyPool Pool;
 }

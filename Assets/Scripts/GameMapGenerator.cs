@@ -20,10 +20,16 @@ public class GameMapGenerator : MonoBehaviour
     MapTreasureSpawner treasureSpawner = null;
 
     [SerializeField]
+    MapEnemySpawner enemySpawner = null;
+
+    [SerializeField]
     Transform wallTransform = null;
 
     [SerializeField]
     Transform treasureTransform = null;
+
+    [SerializeField]
+    Transform enemyTransform = null;
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +141,10 @@ public class GameMapGenerator : MonoBehaviour
                 else if (map[x, y] == GameMap.MapTiles.BLANK && gameMap.ShouldSpawnTreasure)
                 {
                     treasureSpawner.SpawnTreasure(treasureTransform, x, y, pos);
+                }
+                else if (map[x, y] == GameMap.MapTiles.BLANK && gameMap.ShouldSpawnEnemy)
+                {
+                    enemySpawner.SpawnEnemy(enemyTransform, x, y, pos);
                 }
             }
         }
