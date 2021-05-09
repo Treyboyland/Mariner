@@ -56,12 +56,12 @@ public class DayNightCycle : MonoBehaviour
         mainCamera.backgroundColor = skyColor.Evaluate(progress);
         if (!isNight && progress >= nightPercentage.x && progress <= nightPercentage.y)
         {
-            Debug.LogWarning("Night");
+            //Debug.LogWarning("Night");
             onNightStarted.Invoke();
         }
         else if (isNight && (progress < nightPercentage.x || progress > nightPercentage.y))
         {
-            Debug.LogWarning("Day");
+            //Debug.LogWarning("Day");
             onDayStarted.Invoke();
         }
     }

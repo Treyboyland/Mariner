@@ -194,4 +194,20 @@ public class InventorySO : ScriptableObject
         this.onInventoryUpdated = other.onInventoryUpdated;
 
     }
+
+    public override string ToString()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        sb.Append("Inventory: ");
+        for (int i = 0; i < currentInventory.Count; i++)
+        {
+            sb.Append("" + currentInventory[i].Count + " " + currentInventory[i].Item);
+            if (i != currentInventory.Count - 1)
+            {
+                sb.Append(", ");
+            }
+        }
+
+        return sb.ToString();
+    }
 }

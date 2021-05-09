@@ -121,6 +121,7 @@ public class GameMapGenerator : MonoBehaviour
     {
         wallPool.DisableAll();
         treasureSpawner.DisableAll();
+        enemySpawner.DisableAll();
 
         var map = gameMap.MapPoints.CopyMap();
         //Debug.LogWarning(map.AsString());

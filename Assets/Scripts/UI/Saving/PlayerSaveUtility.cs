@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using System.Xml.Linq;
 
 public class PlayerSaveUtility : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerSaveUtility : MonoBehaviour
 
     [SerializeField]
     SaveLocationSO saveLocation = null;
+
+    [SerializeField]
+    List<ItemDataSO> allGameItems = null;
 
     [Serializable]
     public struct DataAndPath
@@ -64,9 +68,12 @@ public class PlayerSaveUtility : MonoBehaviour
     {
         try
         {
-            var data = File.ReadAllText(filePath);
-            var playerData = (PlayerDataSO)ScriptableObject.CreateInstance(typeof(PlayerDataSO));
-            JsonUtility.FromJsonOverwrite(data, playerData);
+            var data = XElement.Parse(File.ReadAllText(filePath));
+            PlayerDataSO playerData;
+            GameDataXmlExtensions.GetPlayerDataFromXml(data, out playerData, allGameItems);
+            Debug.LogWarning("Read from path \"" + filePath + "\"" + playerData);
+
+
             //TODO: Figure out how to save and recover inventory
             if (playerData.CurrentInventory == null)
             {
@@ -91,7 +98,10 @@ public class PlayerSaveUtility : MonoBehaviour
         {
             return;
         }
+        Debug.LogWarning("Initial Data: " + toChange);
+        Debug.LogWarning("To Load: " + allSaves[index].DataSO);
         toChange.SetData(allSaves[index].DataSO);
+        Debug.LogWarning("Modified Data: " + toChange);
     }
 
     public void CreateSave()
@@ -110,7 +120,7 @@ public class PlayerSaveUtility : MonoBehaviour
         try
         {
             data.SaveTime = DateTime.Now;
-            File.WriteAllText(filePath, JsonUtility.ToJson(data));
+            data.ToXml().Save(filePath);
             Debug.Log("File saved at \"" + filePath + "\"");
             return true;
         }

@@ -62,7 +62,7 @@ public class LoadButton : MonoBehaviour
     void SetTextData(PlayerDataSO playerData)
     {
         date.text = playerData.SaveTime.ToString();
-        goldText.text = "------";  //TODO: Figure out custom save format...maybe XML? //playerData.CurrentInventory.GetNumItems(goldItem);
+        goldText.text = "" + playerData.CurrentInventory.GetNumItems(goldItem);
         backColor.color = playerData.BackColor;
         frontColor.color = playerData.FrontColor;
         button.interactable = true;

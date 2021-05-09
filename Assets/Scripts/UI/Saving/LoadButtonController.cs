@@ -16,7 +16,7 @@ public class LoadButtonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     public void SetData()

@@ -34,7 +34,7 @@ public class PlayerDataSO : ScriptableObject
     /// <summary>
     /// The player's maximum health points
     /// </summary>
-    public int MaxHealth { get { return maxHealth; } }
+    public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
 
     [Tooltip("Current items the player has")]
     [SerializeField]
@@ -146,5 +146,20 @@ public class PlayerDataSO : ScriptableObject
     public void CreateNewInventory()
     {
         currentInventory = ScriptableObject.CreateInstance<InventorySO>();
+    }
+
+    public override string ToString()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        sb.Append("Player:\r\n" +
+        "Save Time: " + SaveTime + "\r\n" +
+        "Max Health: " + maxHealth + "\r\n" +
+        "Max Depth: " + maxDepth + "\r\n" +
+        "Back Color: " + backColor + "\r\n" +
+        "Front Color: " + frontColor + "\r\n" +
+        "Max Energy: " + maxEnergy + "\r\n" +
+        currentInventory);
+
+        return sb.ToString();
     }
 }

@@ -59,10 +59,12 @@ public class Player : MonoBehaviour
     {
         if (isDebug)
         {
+            Debug.LogWarning("Debug Mode. Loading " + debugData);
             playerData = debugData.Copy();
         }
         else
         {
+            Debug.LogWarning("Release Mode. Loading " + releaseData);
             playerData = releaseData.Copy();
         }
         FullHeal();

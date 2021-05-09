@@ -13,6 +13,10 @@ public class PlayerDepthChanger : MonoBehaviour
     [SerializeField]
     CountTableSO depthPerItem = null;
 
+    private void Start()
+    {
+        UpdateMaxDepth();
+    }
 
     public void UpdateMaxDepth()
     {
