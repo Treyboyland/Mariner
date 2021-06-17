@@ -97,6 +97,7 @@ MonoBehaviour:
   rewards: {fileID: 11400000, guid: ddbb91432f984854f82c25a89cb66fb9, type: 2}
   disablesOnPickup: 1
   pickupEvent: {fileID: 11400000, guid: 68645348560a6d043819718e5ff9a68b, type: 2}
+  pickupLocation: {fileID: 11400000, guid: aac7c81457aadaf418165fcc10b4be19, type: 2}
 --- !u!58 &6301332859222731876
 CircleCollider2D:
   m_ObjectHideFlags: 0

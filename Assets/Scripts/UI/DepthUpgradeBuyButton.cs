@@ -7,7 +7,7 @@ using TMPro;
 public class DepthUpgradeBuyButton : MonoBehaviour
 {
     [SerializeField]
-    Player player = null; 
+    Player player = null;
 
     [SerializeField]
     UpgradeCostSO purchaseTable = null;
@@ -22,7 +22,7 @@ public class DepthUpgradeBuyButton : MonoBehaviour
     Button button = null;
 
     [SerializeField]
-    TextMeshProUGUI textBox;
+    TextMeshProUGUI textBox = null;
 
     uint currentCost = 0;
 
@@ -49,5 +49,6 @@ public class DepthUpgradeBuyButton : MonoBehaviour
     {
         textBox.text = "Buy " + depthUpgrade.ItemName + "\r\n" + (ableToBuy ? "" : "Need ")
             + currentCost + " " + gold.ItemName;
+        //Debug.LogWarning(gameObject.name + ": " + textBox.text);
     }
 }

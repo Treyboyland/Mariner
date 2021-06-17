@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayOneOffSound : MonoBehaviour
 {
     [SerializeField]
-    OneOffSoundPool pool;
+    OneOffSoundPool pool = null;
 
     [SerializeField]
-    AudioClip clip;
+    AudioClip clip = null;
 
     [SerializeField]
-    float volume;
+    float volume = 0;
 
     public void PlaySound()
     {

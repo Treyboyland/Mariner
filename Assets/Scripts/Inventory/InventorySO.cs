@@ -19,6 +19,8 @@ public class InventorySO : ScriptableObject
     [SerializeField]
     GameEvent onInventoryUpdated = null;
 
+    public GameEvent OnInventoryUpdated { set { onInventoryUpdated = value; } }
+
     private void OnEnable()
     {
         Consolidate();

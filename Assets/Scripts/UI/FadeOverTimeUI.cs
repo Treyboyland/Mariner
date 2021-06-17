@@ -28,7 +28,7 @@ public class FadeOverTimeUI : MonoBehaviour
     float secondsToFade = 0;
 
     [SerializeField]
-    TextMeshProUGUI text;
+    TextMeshProUGUI text = null;
 
 
     /// <summary>

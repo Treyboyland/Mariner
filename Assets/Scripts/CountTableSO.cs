@@ -16,7 +16,7 @@ public class CountTableSO : ScriptableObject
     /// <returns></returns>
     public float GetCostForCount(uint count)
     {
-        float max = float.MinValue;
+        float max = float.MaxValue;
 
         foreach (var cost in costs)
         {

@@ -11,18 +11,12 @@ public class BaseSave : MonoBehaviour
     GameEvent onSaveNotSuccessful = null;
 
     [SerializeField]
-    Player player;
+    Player player = null;
 
     [SerializeField]
-    SaveLocationSO saveLocation;
+    SaveLocationSO saveLocation = null;
 
     public bool ShouldSave { get; set; } = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     public void SaveGame()
     {

@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    Player player;
+
+    [SerializeField]
+    ItemDataSO mysteriousItem;
+
+    [SerializeField]
     float speed = 0;
 
     [SerializeField]
@@ -59,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         IsMoving = Input.GetButton("Movement");
 
-        body.AddForce(new Vector2(x, isInWater ? y : 0), ForceMode2D.Impulse);
+        body.AddForce(new Vector2(x, isInWater || player.Data.CurrentInventory.HasItem(mysteriousItem) ? y : 0), ForceMode2D.Impulse);
     }
 
     public void Stop()

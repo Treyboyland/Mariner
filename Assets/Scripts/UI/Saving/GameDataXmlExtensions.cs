@@ -39,7 +39,7 @@ public static class GameDataXmlExtensions
         return player;
     }
 
-    public static bool GetPlayerDataFromXml(XElement xmlData, out PlayerDataSO playerData, List<ItemDataSO> items)
+    public static bool GetPlayerDataFromXml(XElement xmlData, out PlayerDataSO playerData, List<ItemDataSO> items, GameEvent inventoryUpdateEvent)
     {
         try
         {
@@ -57,6 +57,7 @@ public static class GameDataXmlExtensions
                 var otherInventory = GetInventoryFromXml(inventory, items);
                 playerData.CurrentInventory.AddItems(otherInventory);
             }
+            playerData.CurrentInventory.OnInventoryUpdated = inventoryUpdateEvent;
 
             return true;
         }

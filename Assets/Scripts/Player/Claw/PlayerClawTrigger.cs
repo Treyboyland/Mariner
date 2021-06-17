@@ -22,7 +22,7 @@ public class PlayerClawTrigger : MonoBehaviour
         //Note: PEMDAS, then bitwise - if object is on treasure mask
         if (IsOnTreasureLayer(other))
         {
-            Debug.LogWarning(gameObject.name + ": Found: " + other.gameObject.name);
+            //Debug.LogWarning(gameObject.name + ": Found: " + other.gameObject.name);
             onTreasureCloseToClaw.GameObject = other.gameObject;
             onTreasureCloseToClaw.Invoke();
         }
@@ -33,7 +33,7 @@ public class PlayerClawTrigger : MonoBehaviour
         //Note: PEMDAS, then bitwise - if object is on treasure mask
         if (IsOnTreasureLayer(other))
         {
-            Debug.LogWarning(gameObject.name + ": Leaving: " + other.gameObject.name);
+            //Debug.LogWarning(gameObject.name + ": Leaving: " + other.gameObject.name);
             onTreasureLeftClaw.GameObject = other.gameObject;
             onTreasureLeftClaw.Invoke();
         }

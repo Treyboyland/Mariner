@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpikeCreator : MonoBehaviour
 {
     [SerializeField]
-    Vector2Int spikeRange;
+    Vector2Int spikeRange = new Vector2Int();
 
     [SerializeField]
-    GameObject spikePrefab;
+    GameObject spikePrefab = null;
 
     List<GameObject> allSpikes = new List<GameObject>();
 

@@ -17,6 +17,14 @@ public class DarknessAtDepth : MonoBehaviour
     [SerializeField]
     AnimationCurve alphaCurve = null;
 
+    [SerializeField]
+    AnimationCurve nightAlphaCurve = null;
+
+    [SerializeField]
+    float darknessMaxAlpha;
+
+    [SerializeField]
+    DayNightCycle dayNightCycle = null;
 
 
     // Start is called before the first frame update
@@ -28,11 +36,15 @@ public class DarknessAtDepth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CheckDarkness();
     }
 
     void UpdateAlpha(float a)
     {
+        if (a > 1)
+        {
+            a = 1;
+        }
         var color = sprite.color;
         color.a = a;
         sprite.color = color;
@@ -42,6 +54,6 @@ public class DarknessAtDepth : MonoBehaviour
     {
         var depth = player.Depth;
         var progress = depth / maxDepth;
-        UpdateAlpha(alphaCurve.Evaluate(progress));
+        UpdateAlpha(alphaCurve.Evaluate(progress) + darknessMaxAlpha * nightAlphaCurve.Evaluate(dayNightCycle.DayCyclePercentage));
     }
 }

@@ -8,4 +8,6 @@ public class PlayerDirection : GameEvent
 {
     [SerializeField]
     string directionName = null;
+
+    public string DirectionName { get { return directionName; } }
 }

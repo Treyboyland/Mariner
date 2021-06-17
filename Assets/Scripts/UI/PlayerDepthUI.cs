@@ -15,7 +15,7 @@ public class PlayerDepthUI : MonoBehaviour
     TextMeshProUGUI textBox = null;
 
     [SerializeField]
-    float cautionPercent = .75f;
+    float cautionThreshold = .75f;
 
     [SerializeField]
     Color cautionColor = Color.yellow;
@@ -57,7 +57,7 @@ public class PlayerDepthUI : MonoBehaviour
         {
             return dangerColor;
         }
-        if (playerDepth.Depth >= player.Data.MaxDepth * cautionPercent)
+        if (playerDepth.Depth >= player.Data.MaxDepth - cautionThreshold)
         {
             return cautionColor;
         }

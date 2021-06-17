@@ -13,6 +13,9 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     GameEvent pickupEvent = null;
 
+    [SerializeField]
+    GameEventVector2 pickupLocation = null;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,6 +32,11 @@ public class Pickup : MonoBehaviour
         if (pickupEvent != null)
         {
             pickupEvent.Invoke();
+        }
+        if (pickupLocation != null)
+        {
+            pickupLocation.Vector = transform.position;
+            pickupLocation.Invoke();
         }
         if (disablesOnPickup)
         {

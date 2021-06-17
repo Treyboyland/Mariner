@@ -39,6 +39,14 @@ public class DayNightCycle : MonoBehaviour
     /// <value></value>
     public bool IsNight { get { return isNight; } set { isNight = value; } }
 
+    public float DayCyclePercentage
+    {
+        get
+        {
+            return elapsed / secondsPerCycle;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

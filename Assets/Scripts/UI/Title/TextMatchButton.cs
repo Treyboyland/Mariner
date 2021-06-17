@@ -10,9 +10,6 @@ public class TextMatchButton : MonoBehaviour
     Image buttonImage = null;
 
     [SerializeField]
-    Button button = null;
-
-    [SerializeField]
     TextMeshProUGUI text = null;
 
     // Start is called before the first frame update
@@ -24,8 +21,6 @@ public class TextMatchButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(gameObject.name + ": " + button.targetGraphic.color);
-        //Debug.Log(gameObject.name + ": " + buttonImage.color);
         text.color = buttonImage.color;
     }
 }

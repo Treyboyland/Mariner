@@ -20,6 +20,9 @@ public class PlayerSaveUtility : MonoBehaviour
     [SerializeField]
     List<ItemDataSO> allGameItems = null;
 
+    [SerializeField]
+    GameEvent inventoryUpdatedEvent = null;
+
     [Serializable]
     public struct DataAndPath
     {
@@ -70,7 +73,7 @@ public class PlayerSaveUtility : MonoBehaviour
         {
             var data = XElement.Parse(File.ReadAllText(filePath));
             PlayerDataSO playerData;
-            GameDataXmlExtensions.GetPlayerDataFromXml(data, out playerData, allGameItems);
+            GameDataXmlExtensions.GetPlayerDataFromXml(data, out playerData, allGameItems, inventoryUpdatedEvent);
             Debug.LogWarning("Read from path \"" + filePath + "\"" + playerData);
 
 
@@ -102,6 +105,7 @@ public class PlayerSaveUtility : MonoBehaviour
         Debug.LogWarning("To Load: " + allSaves[index].DataSO);
         toChange.SetData(allSaves[index].DataSO);
         Debug.LogWarning("Modified Data: " + toChange);
+        saveLocation.SaveLocation = allSaves[index].Path;
     }
 
     public void CreateSave()

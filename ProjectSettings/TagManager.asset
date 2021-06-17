@@ -62,3 +62,6 @@ TagManager:
   - name: Darkness
     uniqueID: 2747776045
     locked: 0
+  - name: Damage
+    uniqueID: 4278158959
+    locked: 0

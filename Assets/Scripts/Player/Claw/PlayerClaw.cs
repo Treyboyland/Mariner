@@ -8,7 +8,7 @@ public class PlayerClaw : MonoBehaviour
     Player player = null;
 
     [SerializeField]
-    SpriteRenderer clawBody;
+    SpriteRenderer clawBody = null;
 
     [SerializeField]
     GameEventGameObject onTreasureClose = null;
@@ -23,7 +23,7 @@ public class PlayerClaw : MonoBehaviour
     float yShrinkSpeed = 0;
 
     [SerializeField]
-    float initialLength;
+    float initialLength = 0;
 
     bool movingTowardsTreasure = false;
 
@@ -67,7 +67,7 @@ public class PlayerClaw : MonoBehaviour
 
     public void StartTracking()
     {
-        if (!movingTowardsTreasure)
+        if (!movingTowardsTreasure && gameObject.activeInHierarchy)
         {
             currentTreasureTracked = onTreasureClose.GameObject;
             SetAlpha(1);

@@ -24,7 +24,7 @@ public class UpgradeCostSO : ScriptableObject
             {
                 return cost.Cost;
             }
-            if (max < cost.Count)
+            if (max < cost.Cost)
             {
                 max = cost.Cost;
             }

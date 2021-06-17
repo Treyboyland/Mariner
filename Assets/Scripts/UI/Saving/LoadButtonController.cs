@@ -5,19 +5,13 @@ using UnityEngine;
 public class LoadButtonController : MonoBehaviour
 {
     [SerializeField]
-    GameEventInt pageNum;
+    GameEventInt pageNum = null;
 
     [SerializeField]
-    PlayerSaveUtility saveUtility;
+    PlayerSaveUtility saveUtility = null;
 
     [SerializeField]
-    List<LoadButton> buttons;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    List<LoadButton> buttons = null;
 
     public void SetData()
     {

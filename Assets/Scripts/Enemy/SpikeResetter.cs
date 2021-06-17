@@ -5,19 +5,7 @@ using UnityEngine;
 public class SpikeResetter : MonoBehaviour
 {
     [SerializeField]
-    Animator enemy;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    Animator enemy = null;
 
     public void ResetAttack()
     {

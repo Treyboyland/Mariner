@@ -35,6 +35,8 @@ public class ShipShopColor : MonoBehaviour
 
     bool frontSelected = false;
 
+    bool initializing = false;
+
     public bool FrontSelected
     {
         get
@@ -43,7 +45,7 @@ public class ShipShopColor : MonoBehaviour
         }
         set
         {
-            if (frontSelected != value)
+            if (frontSelected != value || initializing)
             {
                 frontSelected = value;
                 DisableEvents();
@@ -66,6 +68,7 @@ public class ShipShopColor : MonoBehaviour
 
     private void OnEnable()
     {
+        initializing = true;
         frontColor = player.Data.FrontColor;
         backColor = player.Data.BackColor;
         SetFrontColor(frontColor);
@@ -73,6 +76,7 @@ public class ShipShopColor : MonoBehaviour
 
         DisableEvents();
         FrontSelected = true;
+        initializing = false;
     }
 
     public void SetFrontColor(Color c)

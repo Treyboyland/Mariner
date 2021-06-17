@@ -5,7 +5,7 @@ using UnityEngine;
 public class SavePageID : MonoBehaviour
 {
     [SerializeField]
-    GameObject lightObject;
+    GameObject lightObject = null;
 
     [SerializeField]
     int id = 0;

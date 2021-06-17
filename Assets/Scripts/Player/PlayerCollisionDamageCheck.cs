@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerCollisionDamageCheck : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody2D playerRidgidbody = null;
-
-    [SerializeField]
     Player player = null;
 
     [SerializeField]

@@ -143,7 +143,7 @@ public class GameMapGenerator : MonoBehaviour
                 {
                     treasureSpawner.SpawnTreasure(treasureTransform, x, y, pos);
                 }
-                else if (map[x, y] == GameMap.MapTiles.BLANK && gameMap.ShouldSpawnEnemy)
+                else if (map[x, y] == GameMap.MapTiles.BLANK && gameMap.ShouldSpawnEnemy(y))
                 {
                     enemySpawner.SpawnEnemy(enemyTransform, x, y, pos);
                 }

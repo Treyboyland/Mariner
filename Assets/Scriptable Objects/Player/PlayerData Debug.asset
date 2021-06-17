@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1c26a910f56494b96f7bbe4fbcc300, type: 3}
   m_Name: PlayerData Debug
   m_EditorClassIdentifier: 
+  saveTime: 0
   maxHealth: 30
   currentInventory: {fileID: 11400000, guid: 9c91f730e27390e4a8bf27fbc3ec6ec9, type: 2}
   maxDepth: 250

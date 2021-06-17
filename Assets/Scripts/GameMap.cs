@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameMap : MonoBehaviour
 {
     [SerializeField]
-    Vector2Int dimensions;
+    Vector2Int dimensions = new Vector2Int();
 
     [Range(0, 100)]
     [SerializeField]
@@ -23,16 +23,16 @@ public class GameMap : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    int enemySpawnDepth = 0;
+
     [Range(0, 100)]
     [SerializeField]
     int enemyProbability = 0;
 
-    public bool ShouldSpawnEnemy
+    public bool ShouldSpawnEnemy(int depthY)
     {
-        get
-        {
-            return Random.Range(0, 100) < enemyProbability;
-        }
+        return depthY >= enemySpawnDepth && Random.Range(0, 100) < enemyProbability;
     }
 
     [SerializeField]

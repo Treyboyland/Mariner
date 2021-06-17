@@ -5,19 +5,13 @@ using UnityEngine;
 public class SaveLightController : MonoBehaviour
 {
     [SerializeField]
-    SavePageIdPool pool;
+    SavePageIdPool pool = null;
 
     [SerializeField]
-    GameEventInt menuNumPages;
+    GameEventInt menuNumPages = null;
 
     [SerializeField]
-    GameEventInt currentIndex;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    GameEventInt currentIndex = null;
 
     public void SetNumPages()
     {

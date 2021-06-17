@@ -7,10 +7,10 @@ using UnityEngine;
 public class ButtonSoundPlayer : MonoBehaviour
 {
     [SerializeField]
-    AudioSource source;
+    AudioSource source = null;
 
     [SerializeField]
-    AudioClip clip;
+    AudioClip clip = null;
 
     public void Play()
     {

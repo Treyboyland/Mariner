@@ -72,16 +72,23 @@ public class Player : MonoBehaviour
 
     public void FullHeal()
     {
+        bool healthChanged = currentHealth != playerData.MaxHealth;
+        bool energyChanged = currentEnergy != playerData.MaxEnergy;
+
         if (currentHealth != playerData.MaxHealth)
         {
             currentHealth = playerData.MaxHealth;
-            onFullHeal.Invoke();
         }
 
         if (currentEnergy != playerData.MaxEnergy)
         {
             currentEnergy = playerData.MaxEnergy;
             onEnergyUpdated.Invoke();
+        }
+
+        if (healthChanged || energyChanged)
+        {
+            onFullHeal.Invoke();
         }
 
         onHealthUpdated.Invoke();
