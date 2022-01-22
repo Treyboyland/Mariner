@@ -80,13 +80,53 @@ public class LoadCanvasController : MonoBehaviour
             onNumPagesDetermined.IntValue = maxIndex;
             onNumPagesDetermined.Invoke();
         }
+        if (maxIndex != GetNumPagesNeeded())
+        {
+            maxIndex = GetNumPagesNeeded();
+            onNumPagesDetermined.IntValue = maxIndex;
+            onNumPagesDetermined.Invoke();
+        }
         Index = 0;
+        onDataLoaded.Invoke();
+    }
+
+    public void RefreshData(bool fromMain)
+    {
+        if (!gamesLoaded)
+        {
+            gamesLoaded = true;
+            saveData.LoadAllData();
+            maxIndex = GetNumPagesNeeded();
+            onNumPagesDetermined.IntValue = maxIndex;
+            onNumPagesDetermined.Invoke();
+        }
+        else
+        {
+            maxIndex = GetNumPagesNeeded();
+            onNumPagesDetermined.IntValue = maxIndex;
+            onNumPagesDetermined.Invoke();
+        }
+        if (fromMain)
+        {
+            Index = 0;
+        }
+        else
+        {
+            Index = Index >= maxIndex ? maxIndex - 1 : Index;
+        }
+
         onDataLoaded.Invoke();
     }
 
     public void LoadGame()
     {
         saveData.LoadSave(Index * loadButtons.Count + onButtonSelected.IntValue);
+    }
+
+    public void DeleteGame()
+    {
+        saveData.DeleteSave(Index * loadButtons.Count + onButtonSelected.IntValue);
+        RefreshData(false);
     }
 
     public void IncrementIndex()

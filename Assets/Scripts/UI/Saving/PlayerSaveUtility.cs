@@ -108,6 +108,24 @@ public class PlayerSaveUtility : MonoBehaviour
         saveLocation.SaveLocation = allSaves[index].Path;
     }
 
+    public void DeleteSave(int index)
+    {
+        if (index >= allSaves.Count)
+        {
+            return;
+        }
+
+        try
+        {
+            System.IO.File.Delete(allSaves[index].Path);
+            allSaves.RemoveAt(index);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Cannot delete file at index " + index + ":\r\n" + e);
+        }
+    }
+
     public void CreateSave()
     {
         string saveName = Application.persistentDataPath + "/" +

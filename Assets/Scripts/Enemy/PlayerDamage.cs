@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerDamage : MonoBehaviour
     bool hitsOnce = false;
 
     bool isHit = false;
+
+    public UnityEvent OnPlayerDamaged;
 
     private void OnDisable()
     {
@@ -24,6 +27,12 @@ public class PlayerDamage : MonoBehaviour
         {
             isHit = true;
             player.TakeDamage(damage);
+            OnPlayerDamaged.Invoke();
         }
+    }
+
+    public void SetTransForm(GameEventVector2 gameEvent)
+    {
+        gameEvent.Vector = transform.position;
     }
 }

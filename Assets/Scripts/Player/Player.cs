@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     /// <value></value>
     public int CurrentHealth { get { return currentHealth; } }
 
+    [SerializeField]
     float currentEnergy;
 
     public float CurrentEnergy { get { return currentEnergy; } }
